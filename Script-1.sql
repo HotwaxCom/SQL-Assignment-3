@@ -21,6 +21,6 @@ join product_type pt
 	on pt.product_type_id = p.product_type_id
 	where pt.IS_PHYSICAL = "Y"
 and oh.status_id="ORDER_CREATED" or oh.status_id="ORDER_APPROVED"
-order by oh.order_id
+order by oh.order_id;
 
 
