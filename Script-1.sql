@@ -11,8 +11,8 @@ select
 	oh.order_type_id,
 	oh.product_store_id
 from order_header oh
-join order_status os
-	on os.order_id=oh.order_id
+left join order_status os
+	on os.order_id=oh.order_id and os.STATUS_ID = oh.STATUS_ID 
 join order_item oi 
 	on oi.order_id=oh.order_id
 join product p
@@ -20,8 +20,7 @@ join product p
 join product_type pt 
 	on pt.product_type_id = p.product_type_id
 	where pt.IS_PHYSICAL = "Y"
-	and oh.status_id="ORDER_CREATED" or oh.status_id="ORDER_APPROVED"
-	and os.status_id=oh.status_id
-order by oh.order_id;
+and oh.status_id="ORDER_CREATED" or oh.status_id="ORDER_APPROVED"
+order by oh.order_id
 
 
