@@ -1,10 +1,7 @@
 ## Question 1: Completed Sales Orders (Physical Items)
 
-**Business Problem:**
-
 Merchants need to track only physical items (requiring shipping and fulfillment) for logistics and shipping-cost analysis.
-
-**Fields to Retrieve:**
+Fields to Retrieve:
 
 - ORDER_ID  
 - ORDER_ITEM_SEQ_ID  
@@ -18,11 +15,7 @@ Merchants need to track only physical items (requiring shipping and fulfillment)
 - ORDER_TYPE_ID  
 - PRODUCT_STORE_ID  
 
----
-
-### Solution:
-
-```sql
+```
 select 
     oh.order_id,
     oi.order_item_seq_id,
@@ -47,3 +40,6 @@ join product_type pt
 where pt.is_physical = 'Y'
   and (oh.status_id = 'ORDER_CREATED' or oh.status_id = 'ORDER_APPROVED')
 order by oh.order_id;
+```
+
+Query Cost: 1,145,190.57
