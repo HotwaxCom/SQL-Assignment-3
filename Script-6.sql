@@ -1,3 +1,9 @@
+Question:
+
+Analyzing orders with multiple returns can identify potential fraud, chronic issues with certain items, or inconsistent shipping processes.
+
+Solution:
+
 select
     ri.order_id,
     ri.return_id,
@@ -15,4 +21,6 @@ where ri.order_id in (
 )
 order by 
 	ri.order_id;
- 
+
+Query Cost: 6,933.22
+```
