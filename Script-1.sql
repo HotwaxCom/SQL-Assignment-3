@@ -42,4 +42,4 @@ where pt.is_physical = 'Y'
 order by oh.order_id;
 ```
 
-Query Cost: 1,145,190.57
+Query Cost: 574,125.48
