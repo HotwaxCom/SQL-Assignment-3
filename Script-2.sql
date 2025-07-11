@@ -1,3 +1,9 @@
+Question:
+
+Customer service and finance often need insights into returned items to manage refunds, replacements, and inventory restocking.
+
+Solution:
+
 select
 	ri.return_id,
 	ri.order_id,
@@ -18,5 +24,4 @@ join order_header oh
 	and ri.return_item_seq_id=rs.return_item_seq_id
 	order by return_id;
 
-	
-	
+Query Cost: 15,327.48
