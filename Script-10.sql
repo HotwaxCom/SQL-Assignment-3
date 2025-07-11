@@ -4,7 +4,6 @@ Retailers need to study the relation of inventory levels of products to the type
 
 Solution:
 	
-```
 SELECT
 	ii.product_id,
 	ii.facility_id,
@@ -18,10 +17,9 @@ from inventory_item ii
 		on ft.facility_type_id = f.facility_type_id 	
 		where f.facility_type_id = "VIRTUAL_FACILITY" 
                 or ft.PARENT_TYPE_ID = "VIRTUAL_FACILITY";
-```
 	
 Reasoning:
 Here, we needed region-specefic analysis specifically New York. So for this we took state_province_geo_id = "NY" or city ="New York" and applied joins as required in the question.
 
-```Query Cost: 77,126.12
-```
+Query Cost: 77,126.12
+
