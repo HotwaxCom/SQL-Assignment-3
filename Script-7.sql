@@ -1,3 +1,9 @@
+Question:
+
+Companies often want region-specific analysis to plan local marketing, staffing, or promotions in certain areas—here, specifically, New York.
+
+Solution:
+
 select
     oisg.facility_id,
     f.facility_name,
@@ -19,4 +25,6 @@ group by
 order by 
     total_one_day_shipped_orders desc
 limit 1; 
+
+Query Cost: 1.76
 
