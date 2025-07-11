@@ -1,3 +1,9 @@
+Question:
+
+The mechandising team needs a list of orders that only have one return.
+
+Solution:
+
 Select
     rh.from_party_id as party_id,
     p.first_name
@@ -9,3 +15,5 @@ join person p
 group by rh.from_party_id, ri.order_id
 having count(ri.order_id) = 1 
 order by rh.from_party_id;
+
+Query Cost: 12,488.51
