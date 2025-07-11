@@ -1,3 +1,9 @@
+Question:
+
+The retailer needs the total amount of items, were returned as well as how many appeasements were issued.
+
+Solution:
+
 select 
 	count(ri.return_item_seq_id) as total_returns,
 	sum(ri.return_quantity*ri.return_price) as return_total,
@@ -10,5 +16,4 @@ left join return_adjustment ra
 	on rh.return_id = ra.return_id
 	where ra.return_adjustment_type_id="APPEASEMENT";
 
-
-	
+Query Cost: 693.82
