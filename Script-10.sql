@@ -3,9 +3,9 @@ Question:
 Retailers need to study the relation of inventory levels of products to the type of facility it's stored at. Retrieve all inventory levels for products at locations and include the facility type Id. Do not retrieve facilities that are of type Virtual.
 
 Solution:
+	
 ```
-
-select 
+SELECT
 	ii.product_id,
 	ii.facility_id,
 	f.facility_type_id,
@@ -18,7 +18,6 @@ from inventory_item ii
 		on ft.facility_type_id = f.facility_type_id 	
 		where f.facility_type_id = "VIRTUAL_FACILITY" 
 		or ft.PARENT_TYPE_ID = "VIRTUAL_FACILITY";
-
 ```
 Reasoning:
 
