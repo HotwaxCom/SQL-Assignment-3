@@ -1,3 +1,9 @@
+Question:
+
+A picklist is necessary for warehouse staff to gather items. Orders missing a picklist might be delayed and need attention. Find orders without picklist.
+
+Solution:
+
 select
 	os.order_id,
 	oh.order_date,
@@ -16,5 +22,4 @@ left join order_facility_change ofc
 	where pb.picklist_id is null
 	order by os.order_id;
 
-
-	
+Query Cost: 121,928.87
