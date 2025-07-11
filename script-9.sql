@@ -1,3 +1,9 @@
+Question:
+
+Retailers want to see how many (and which) facilities (stores, warehouses, virtual sites) currently offer a product for sale.
+
+Solution:
+	
 Select
     pf.product_id,
     p.internal_name as product_internal_name,
@@ -10,5 +16,6 @@ join
     on p.product_id = pf.product_id
 group by 
     pf.product_id, p.internal_name;
-		
-		
+
+Query Cost: 794,039.05
+
