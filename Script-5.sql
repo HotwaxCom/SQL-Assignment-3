@@ -1,3 +1,9 @@
+Question:
+	
+Certain teams need granular return data (reason, date, refund amount) for analyzing return rates, identifying recurring issues, or updating policies.
+
+Solution:
+
 select 
 	rh.return_id,
 	rh.entry_date,
@@ -16,6 +22,8 @@ left join return_adjustment ra
 left join order_header oh
 	on oh.order_id = ri.order_id
 	order by rh.return_id;
+
+Query Cost: 12,252.79
 
 
 	
