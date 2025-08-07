@@ -2,6 +2,17 @@ Question:
 	
 Certain teams need granular return data (reason, date, refund amount) for analyzing return rates, identifying recurring issues, or updating policies.
 
+Fields to retrieve:
+-RETURN_ID
+-ENTRY_DATE
+-RETURN_ADJUSTMENT_TYPE_ID (refund type, store credit, etc.)
+-AMOUNT
+-COMMENTS
+-ORDER_ID
+-ORDER_DATE
+-RETURN_DATE
+-PRODUCT_STORE_ID
+
 Solution:
 
 select 
@@ -15,15 +26,15 @@ select
 	rh.return_date,
 	oh.product_store_id
 from return_header rh
-left join return_item ri
+join return_item ri
 	on ri.return_id = rh.return_id
-left join return_adjustment ra 
-	on ra.return_id = ri.return_id
-left join order_header oh
+join order_header oh
 	on oh.order_id = ri.order_id
+join return_adjustment ra 
+	on ra.return_id = ri.return_id
 	order by rh.return_id;
 
-Query Cost: 12,252.79
+Query Cost: 10,653.85
 
 
 	
