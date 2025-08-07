@@ -2,6 +2,12 @@ Question:
 
 Retailers want to see how many (and which) facilities (stores, warehouses, virtual sites) currently offer a product for sale.
 
+Fields to retrieve:
+-PRODUCT_ID
+-PRODUCT_NAME (or INTERNAL_NAME)
+-FACILITY_COUNT (number of facilities selling the product)
+-(Optionally) a list of FACILITY_IDs if more detail is needed
+
 Solution:
 	
 Select
@@ -13,9 +19,9 @@ from
     product_facility pf
 join
     product p
-    on p.product_id = pf.product_id
+    on p.product_id = pf.product_id and p.is_virtual = "N" and is_variant = "Y"
 group by 
     pf.product_id, p.internal_name;
 
-Query Cost: 794,039.05
+Query Cost: 90,413.41
 
