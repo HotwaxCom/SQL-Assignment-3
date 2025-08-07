@@ -2,6 +2,12 @@ Question:
 
 The retailer needs the total amount of items, were returned as well as how many appeasements were issued.
 
+Fields to retrieve:
+--TOTAL RETURNS
+--RETURN $ TOTAL
+--TOTAL APPEASEMENTS
+--APPEASEMENTS $ TOTAL
+
 Solution:
 
 select 
@@ -10,10 +16,9 @@ select
 	count(ra.return_adjustment_id) as total_appeasements,
 	sum(ra.amount) as appeasement_total
 from return_header rh
-left join return_item ri
+join return_item ri
 	on rh.return_id = ri.RETURN_ID
 left join return_adjustment ra
-	on rh.return_id = ra.return_id
-	where ra.return_adjustment_type_id="APPEASEMENT";
+	on rh.return_id = ra.return_id and ra.return_adjustment_type_id = "APPEASEMENT";
 
-Query Cost: 693.82
+Query Cost: 4149.45
