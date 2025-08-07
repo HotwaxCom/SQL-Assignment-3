@@ -20,7 +20,7 @@ select
     oh.order_id,
     oi.order_item_seq_id,
     oi.product_id,
-    pt.product_type_id,
+    p.product_type_id,
     oh.sales_channel_enum_id,
     oh.order_date,
     oh.entry_date,
@@ -34,12 +34,9 @@ left join order_status os
 join order_item oi 
     on oi.order_id = oh.order_id
 join product p
-    on p.product_id = oi.product_id
-join product_type pt 
-    on pt.product_type_id = p.product_type_id
-where pt.is_physical = 'Y'
-  and (oh.status_id = 'ORDER_CREATED' or oh.status_id = 'ORDER_APPROVED')
+    on p.product_id = oi.product_id and p.is_virtual = "N" and is_variant = "Y"
+  where oh.status_id in ('ORDER_CREATED','ORDER_APPROVED')
 order by oh.order_id;
 ```
 
-Query Cost: 574,125.48
+Query Cost: 135,985.32
