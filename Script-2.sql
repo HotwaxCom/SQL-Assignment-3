@@ -2,6 +2,18 @@ Question:
 
 Customer service and finance often need insights into returned items to manage refunds, replacements, and inventory restocking.
 
+Fields to retrieve:
+
+- RETURN_ID
+-ORDER_ID
+-PRODUCT_STORE_ID
+-STATUS_DATETIME
+-ORDER_NAME
+-FROM_PARTY_ID
+-RETURN_DATE
+-ENTRY_DATE
+-RETURN_CHANNEL_ENUM_ID
+
 Solution:
 
 select
