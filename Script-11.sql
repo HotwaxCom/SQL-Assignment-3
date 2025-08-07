@@ -2,6 +2,16 @@ Question:
 
 When transferring stock between facilities, the system should reserve inventory. If it isn’t reserved, the transfer may fail or oversell.
 
+Fields to retrieve:
+-TRANSFER_ORDER_ID
+-FROM_FACILITY_ID
+-TO_FACILITY_ID
+-PRODUCT_ID
+-REQUESTED_QUANTITY
+-RESERVED_QUANTITY
+-TRANSFER_DATE
+-STATUS
+
 Solution:
 
 select
@@ -17,5 +27,6 @@ from inventory_transfer it
   join order_item_ship_grp_inv_res oisgir
   on oisgir.inventory_item_id = it.inventory_item_id;
 
-Query Cost: 7.49
+Query Cost: 7.58
+
 
