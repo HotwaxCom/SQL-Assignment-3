@@ -29,6 +29,7 @@ from return_header rh
 join return_item ri
 	on ri.return_id=rh.return_id 
 join return_status rs
+	-- since for a single return there might exist multiple statuses, so as to manage this we apply joins taking into consideration bot the fields
 	on rs.return_id=rh.return_id and rs.status_id = rh.status_id
 join order_header oh
 	on oh.order_id=ri.order_id
