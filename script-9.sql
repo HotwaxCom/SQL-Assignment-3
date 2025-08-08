@@ -21,7 +21,7 @@ join
     product p
     on p.product_id = pf.product_id and p.is_virtual = "N" and is_variant = "Y"
 group by 
-    pf.product_id, p.internal_name;
+    pf.product_id;
 
-Query Cost: 90,413.41
+Query Cost: 138,177.51
 
